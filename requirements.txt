@@ -2,3 +2,5 @@ tweepy==3.8.0
 pandas==1.0.0
 wordcloud==1.6.0
 Django==2.2.5
+gunicorn
+whitenoise
