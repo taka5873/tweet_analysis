@@ -1,0 +1,9 @@
+<h1>hello world!!<h1>
+<p>enter tweet id<p>
+<form action="{% url  'tweetapp:get_tweet_id'  %}" method="post">
+    <input name='tweet_id'>
+    {%csrf_token%}
+    <button type="submit">submit</button>
+</form>
+<hr>
+tw_id : {{ tw_id | safe }}
