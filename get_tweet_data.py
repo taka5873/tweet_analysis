@@ -25,7 +25,7 @@ def get_tweets():
     df = pd.DataFrame(tweet_data, columns=columns_name)
     df.to_csv("./tweet_data1.csv")
 
-    print("end")
+    print("end1")
 
 
 get_tweets()
