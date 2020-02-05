@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# from get_tweet_data import get_tweets
+from get_tweet_data import get_tweets
 
 # Create your views here.
 
@@ -9,8 +9,8 @@ def index(request):
 
 def get_tweet_id(request):
     tw_id = request.POST["tweet_id"]
-    # df = get_tweets()
+    df = get_tweets(tw_id)
 
 
-    # return render(request,"tweetapp/index.html",{"tw_id":df.to_html()})
-    return render(request,"tweetapp/index.html",{"tw_id":tw_id})
+    return render(request,"tweetapp/index.html",{"tw_id":df.to_html()})
+    # return render(request,"tweetapp/index.html",{"tw_id":tw_id})

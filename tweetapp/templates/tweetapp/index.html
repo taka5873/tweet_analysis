@@ -1,9 +1,9 @@
-<h1>hello world!!<h1>
-<p>enter tweet id<p>
+<h1>ツイートを表示するアプリです<h1>
+<p>Twitter ID(@除く)を入力して下さい<p>
 <form action="{% url  'tweetapp:get_tweet_id'  %}" method="post">
     <input name='tweet_id'>
     {%csrf_token%}
-    <button type="submit">submit</button>
+    <button type="submit">ツイートを表示</button>
 </form>
 <hr>
-tw_id : {{ tw_id | safe }}
+ツイート : {{ tw_id | safe }}
