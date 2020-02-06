@@ -5,5 +5,5 @@ app_name = "tweetapp"
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('get_tweet_id/',views.get_tweet_id,name="get_tweet_id")
+    path('get_wordcloud_img/', views.get_wordcloud_img, name="get_wordcloud_img")
 ]

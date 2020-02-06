@@ -1,40 +1,40 @@
-# import MeCab
+import MeCab
 import matplotlib.pyplot as plt
-import csv
+# import csv
 from wordcloud import WordCloud
+from views import get_tweet_id
 
-def analyze_tweet(dfile):
 
-    #読込むファイル名を設定
-    fname = r"'"+ dfile + "'"
-    fname = fname.replace("'","")
+def analyze_tweet():
 
     #Mecabを使用して、形態素解析
-    # mecab = MeCab.Tagger("-Ochasen")
+    mecab = MeCab.Tagger("-Ochasen")
 
     #"名詞", "動詞", "形容詞", "副詞"を格納するリスト
     words=[]
 
     #ファイルを読込み
-    with open(fname, 'r',encoding="utf-8") as f:
+    # with open(fname, 'r',encoding="utf-8") as f:
 
-        reader = f.readline()
+        # reader = f.readline()
+    #データフレームを読み込む
+    df = get_tweet_id()
+    # while reader:
+        #Mecabで形態素解析を実施
+    for text in df.TW_TEXT:
+        node = mecab.parseToNode(text)
 
-        while reader:
-            #Mecabで形態素解析を実施
-            node = mecab.parseToNode(reader)
+        while node:
+            word_type = node.feature.split(",")[0]
 
-            while node:
-                word_type = node.feature.split(",")[0]
+            #取得する単語は、"名詞", "動詞", "形容詞", "副詞"
+            if word_type in ["名詞", "動詞", "形容詞", "副詞"]:
 
-                #取得する単語は、"名詞", "動詞", "形容詞", "副詞"
-                if word_type in ["名詞", "動詞", "形容詞", "副詞"]:
+                words.append(node.surface)
 
-                    words.append(node.surface)
+            node = node.next
 
-                node = node.next
-
-            reader = f.readline()
+            # reader = f.readline()
 
     #wordcloudで出力するフォントを指定
     font_path = r"C:\WINDOWS\Fonts\HGRGE.TTC"
@@ -53,9 +53,9 @@ def analyze_tweet(dfile):
     plt.show()
 
 
-if __name__ == '__main__':
-
-    print ('====== Enter Tweet Data file =====')
-    dfile = input('>  ')
-
-    analyze_tweet(dfile)
+# if __name__ == '__main__':
+#
+#     print ('====== Enter Tweet Data file =====')
+#     dfile = input('>  ')
+#
+#     analyze_tweet(dfile)

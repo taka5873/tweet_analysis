@@ -1,9 +1,0 @@
-<h1>ツイートを表示するアプリです<h1>
-<p>Twitter ID(@除く)を入力して下さい<p>
-<form action="{% url  'tweetapp:get_tweet_id'  %}" method="post">
-    <input name='tweet_id'>
-    {%csrf_token%}
-    <button type="submit">ツイートを表示</button>
-</form>
-<hr>
-ツイート : {{ tw_id | safe }}

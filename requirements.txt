@@ -4,3 +4,8 @@ wordcloud==1.6.0
 Django==2.2.5
 gunicorn
 whitenoise
+mecab-python3
+google-cloud-bigquery==1.11.2
+google-cloud-storage==1.16.1
+pyarrow==0.15.1
+fastparquet==0.3.1
