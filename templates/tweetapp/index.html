@@ -7,9 +7,9 @@
             {%csrf_token%}
         <button type="submit">ツイートを分析</button>
         </form>
-    <img src="{{ img }}" width="100%">
-
-
+    {% if img %}
+        <img src="{{ img }}" width="100%">
+    {% endif %}
 
     </body>
 </html>

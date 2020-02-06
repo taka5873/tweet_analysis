@@ -6,6 +6,8 @@ import MeCab
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from tweetapp.bq import UpDownLoad, ipaexg_PATH
+import requests
+import json
 
 load = UpDownLoad()
 
@@ -17,9 +19,14 @@ def index(request):
 
 
 def get_wordcloud_img(request):
-    tweet_data = get_tweets(request)
+    tw_id = request.POST["tweet_id"]
+    url = f"https://us-central1-tactile-wave-267212.cloudfunctions.net/function-2?message={tw_id}"
+    res = requests.get(url)
+    tweet_data = json.loads(res.text.replace("'",'"'))
     mecab = MeCab.Tagger("-Ochasen")
     words = []
+    import time
+    start = time.time()
     # Mecabで形態素解析を実施
     for text in tweet_data:
         node = mecab.parseToNode(text)
@@ -31,7 +38,7 @@ def get_wordcloud_img(request):
                 words.append(node.surface)
 
             node = node.next
-
+    print("node", time.time()-start)
     # # wordcloudで出力するフォントを指定
     font_path = ipaexg_PATH
 
