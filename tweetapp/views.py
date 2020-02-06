@@ -17,13 +17,12 @@ def index(request):
 
 
 def get_wordcloud_img(request):
-    df = get_tweets(request)
+    tweet_data = get_tweets(request)
     mecab = MeCab.Tagger("-Ochasen")
     words = []
     # Mecabで形態素解析を実施
-    for text in df.TW_TEXT:
+    for text in tweet_data:
         node = mecab.parseToNode(text)
-
         while node:
             word_type = node.feature.split(",")[0]
 

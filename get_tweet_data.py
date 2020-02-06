@@ -21,10 +21,11 @@ def get_tweets(request):
     tw_id = request.POST["tweet_id"]
     tweet_data = []
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=tw_id, exclude_replies=True).items(20):
-        tweet_data.append([tweet.id, tweet.created_at + datetime.timedelta(hours=9), tweet.text.replace('\n', ''),
-                           tweet.favorite_count, tweet.retweet_count])
-    df = pd.DataFrame(tweet_data, columns=columns_name)
-    return df
+        tweet_data.append(tweet.text.replace('\n', ''))
+    #     tweet_data.append([tweet.id, tweet.created_at + datetime.timedelta(hours=9), tweet.text.replace('\n', ''),
+    #                        tweet.favorite_count, tweet.retweet_count])
+    # df = pd.DataFrame(tweet_data, columns=columns_name)
+    return tweet_data
 
     # df.to_csv("./tweet_data1.csv")
 
