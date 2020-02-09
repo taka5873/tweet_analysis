@@ -1,16 +1,17 @@
 <html>
-    <body>
-        <h1>ツイートを分析するアプリです</h1>
-        <p>Twitter ID(@除く)を入力して下さい<p>
-        <form action="{% url  'tweetapp:get_wordcloud_img'  %}" method="post">
-            <input name='tweet_id'>
-            {%csrf_token%}
-        <button type="submit">ツイートを分析</button>
-        </form>
-    {% if img %}
-        <img src="{{ img }}" width="100%">
-    {% endif %}
+<body>
+<h1>ツイートを分析するアプリです</h1>
+<p>Twitter ID(@除く)を入力して下さい
+<p>
+<form action="{% url  'tweetapp:get_wordcloud_img'  %}" method="post">
+    <input name='tweet_id'>
+    {%csrf_token%}
+    <button type="submit">ツイートを分析</button>
+</form>
+{% if img %}
+<img src="{{ img }}" width="1000px" height="1000px">
+{% endif %}
 
-    </body>
+</body>
 </html>
 <hr>
