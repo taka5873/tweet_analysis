@@ -1,6 +1,7 @@
 import tweepy
 import time
 import io
+from datetime import datetime, timedelta
 import urllib, base64
 import pandas as pd
 # import MeCab
@@ -8,6 +9,11 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import os
 from janome.tokenizer import Tokenizer
+# import sys
+# sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
+from bq import UpDownLoad
+
+# from bq import UpDownLoad
 
 t = Tokenizer()
 
@@ -69,10 +75,24 @@ def main(request):
     image = io.BytesIO()  # image.read()は一度しか使えない
     plt.savefig(image, format='png')
     image.seek(0)
-    string = base64.b64encode(image.read())
-    image_64 = 'data:image/png;base64,' + urllib.parse.quote(string)
+    # string = base64.b64encode(image.read())
 
-    return image_64
+    print("load")
+    load = UpDownLoad()
+    data = image.read()
+    d = datetime.today() + timedelta(hours=9)
+    d2 = (datetime.today() + timedelta(hours=9)).strftime("%Y-%m-%d_%H:%M:%S")
+    bucket_name = "my_word_cloud3485"
+    folder_name = f"{d.month}/{d.day}"
+    file_name = f"wordcloud_{msg}_{d2}.png"
+    res_gcs = load.data2gcs(data, bucket_name, folder_name, file_name)
+    url = f"https://storage.cloud.google.com/{bucket_name}/{folder_name}/{file_name}?hl=ja"
+    print(res_gcs)
+    return url, 200
+
+    # print(url)
+
+    # image_64 = 'data:image/png;base64,' + urllib.parse.quote(string)
 
     # return tweet_data
 

@@ -9,9 +9,18 @@
     <button type="submit">ツイートを分析</button>
 </form>
 {% if img %}
+{{tw_url}}
 <img src="{{ img }}" width="1000px" height="1000px">
+<div class="twitter">
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"
+       data-text="{{new_tw_id}}さんのツイートを分析しました！" data-url="https://tw_analysis/{{img}}"  data-lang=ja">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
 {% endif %}
 
 </body>
 </html>
 <hr>
+

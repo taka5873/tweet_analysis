@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tactile-wave-267212",
+  "private_key_id": "cb3a280a483d214523e67129b949edb80e9328c3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8QirBSTnil+Kv\nq2tfzOJccXmZ7dLzeMkQkz5TtZUezF2sHQon3TvdRGY7FeaWJAej5q5YXwmeQE5N\nPU//bwvzEx+Hv1ms9VZhVEkbBdSiuv7wX64FtTEVcbMR7MV3bEVaGHf5oIYJ+8SG\nIl8F9vspaLh4By7wHizTD1bQPZ9Nuw7G6USyWCa+l/mTUC0mvG65YYi28bOZPxaL\nl2fPsqnO5R8l3Y5TrtMYUp5p7Oiqs/K9vUfeAYXRFntaJEr3xAaCUbE14753pk4Z\nKgu7FWnLfL8xaP5XnlokMsDglmz/Ri9It/qoRjbsri628DPhg/V6goyHbH0RJwJ1\nZ0mWx1cRAgMBAAECggEAFo2CL/jY4oaB0Xvyj23c7chp0gkRyRlek/nhwPc7Q67l\np2NstqkcHXYu3ZPydWjgUfAmEX/kJ/VJ9Bqc4WvBFZgEQlfH806KUDtfzSkSB8Mp\nXKxHrZce59PgyQxRfSynM8OD5u+mMx66VLvcIJuti9DH7ZgltT4WLlwzcRu6wH3M\nTZ/0ECEIQGz81B5ANj7X1f+dYgCplnP+8woGelYujx2y4sgZZ4ci7/zMHdZmaWZ4\nfpQaShDoaebPI40d6R9EOFjcRkPDB8fu/L3UI2mlIV6byxM55rTsr4o5jj7Kn8zR\nUGLYHFOZEwab9NZi4IvgFICUHmi0YiBgwkUuCzwliQKBgQDd2Yw1eWndruSLgYyF\nXvYFp9Iue0a6oh9ozlz4qSmnuBoVHlG3mruD4l6kqiDRaJa2/ppUHfG+a8pRRP0O\nLD0X0LaPChoq9cKHKPGnD/VxelV4TL24lSqadJaL0bCzVEvL2Dn4XovO28kSbihV\nEO1qNo2J32AsMI++GL8Y8YfTCQKBgQDZPOITqpx8q81cQSXDNgEsYVq+yuygnyGv\n6h7YHcVe7VqMvQ+C2oi6IvjodYnug7HBtcReRF2L98a5Terc+OCaJhhfSMkwAaDH\nF3PHN/wx4kISAMu7u68LLQoJOjydSOYULpWsZWmkiQuFmQsdaOkd2FqC6V2CcOmJ\np5oEJe29yQKBgQCOuRBcrpmPBp79qQBwJSF9jfPH94MPOpGeaXSifKHRxrzw7SqB\nRkhwlkdxBApM7k5XuAAtMX5+lPX5xrpOTeOX2Kw55bPkA2t8bLjaU4gB00P9OtGr\nWDuqVmsr1GErXYXNxHO294xWLktzUe8cmuFCPYpdMpm6lBtFnsICGBDbkQKBgHbk\nl2bkDVk+Pdqr3RsFx4aekaeyL+eIsEsy+0aUpJzbkp9MKd0X9ZTJ5yhyi9b6RKMb\n9CkTiY89QInSVyQxIdu71cLwdwvLGE9eSoNR5Lj4d+iafuZ0Rcz8DW4XbW03pJSP\nGmOL7VGbn66yoB6seElZS9AyIHdvjKFGFUkH6SHhAoGAPNqZ+tmnjLXrUfA0Uhq+\n2ZgmNzSW5FsTJpAOBmQcbGoEy6Irt+MEREkECsiXU3nwpnjSfN66lvuxc3DWvWws\n54EVcsZ+iUD1DUja9DfsGrwGsQBVzNki8KeZa4NDtL/fHBhG9oGmN7dmpKNOm0FW\n1VQOMEak/8vZ1bkmeO1vYJQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tweetapp@tactile-wave-267212.iam.gserviceaccount.com",
+  "client_id": "115995167984299221326",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tweetapp%40tactile-wave-267212.iam.gserviceaccount.com"
+}
