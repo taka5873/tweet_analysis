@@ -2,23 +2,28 @@
 <head>
 </head>
 <body>
-<h1>ツイートを分析するアプリです</h1>
-<p>Twitter ID(@除く)を入力して下さい
+<h1>ツイートを一枚の画像にします</h1>
+<h3>表示例:河野大臣(@konotarogomame)の場合</h3>
+    <img src="https://storage.cloud.google.com/my_word_cloud3485/2/11/wordcloud_konotarogomame_2020-02-11_21%3A40%3A57.png?hl=ja"
+         width="300px" height="300px">
+<p>
+    Twitter ID(@除く)を入力して下さい
 <p>
 <form action="{% url  'tweetapp:get_wordcloud_img'  %}" method="post">
-    <input name='tweet_id'>
+    <input name='tweet_id' value="AbeShinzo">
     {%csrf_token%}
     <button type="submit">ツイートを分析</button>
 </form>
 {% if gcs_img %}
-<img src="{{ gcs_img }}" width="1000px" height="1000px">
-<div class="twitter">
+<h3>↓Twitterで画像をシェアしよう！</h3>
+<div class="twitter" width="1000px" height="1000px">
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"
        data-text="{{new_tw_id}}さんのツイートを分析しました！"
        data-url="https://tactile-wave-267212.appspot.com/tw_request/{{ imgur_url }}" data-lang=ja">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
+<img src="{{ gcs_img }}" width="1000px" height="1000px">
 
 
 {% endif %}
