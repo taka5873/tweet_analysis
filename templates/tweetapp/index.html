@@ -1,4 +1,6 @@
 <html>
+<head>
+</head>
 <body>
 <h1>ツイートを分析するアプリです</h1>
 <p>Twitter ID(@除く)を入力して下さい
@@ -8,15 +10,16 @@
     {%csrf_token%}
     <button type="submit">ツイートを分析</button>
 </form>
-{% if img %}
-{{tw_url}}
-<img src="{{ img }}" width="1000px" height="1000px">
+{% if gcs_img %}
+<img src="{{ gcs_img }}" width="1000px" height="1000px">
 <div class="twitter">
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"
-       data-text="{{new_tw_id}}さんのツイートを分析しました！" data-url="https://tw_analysis/{{img}}"  data-lang=ja">Tweet</a>
+       data-text="{{new_tw_id}}さんのツイートを分析しました！"
+       data-url="https://tactile-wave-267212.appspot.com/tw_request/{{ imgur_url }}" data-lang=ja">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
+
 
 {% endif %}
 

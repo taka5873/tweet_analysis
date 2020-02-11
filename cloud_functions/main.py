@@ -3,8 +3,6 @@ import time
 import io
 from datetime import datetime, timedelta
 import urllib, base64
-import pandas as pd
-# import MeCab
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import os
@@ -12,6 +10,10 @@ from janome.tokenizer import Tokenizer
 # import sys
 # sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
 from bq import UpDownLoad
+from google.cloud import storage
+from imgurpython import ImgurClient
+import requests
+import json
 
 # from bq import UpDownLoad
 
@@ -69,6 +71,7 @@ def main(request):
     wordcloud = WordCloud(background_color="black", font_path=font_path,
                           stopwords=set(stop_words),
                           width=800, height=600).generate(txt)
+    print(wordcloud)
 
     plt.imshow(wordcloud)
     plt.axis("off")
@@ -86,9 +89,35 @@ def main(request):
     folder_name = f"{d.month}/{d.day}"
     file_name = f"wordcloud_{msg}_{d2}.png"
     res_gcs = load.data2gcs(data, bucket_name, folder_name, file_name)
-    url = f"https://storage.cloud.google.com/{bucket_name}/{folder_name}/{file_name}?hl=ja"
     print(res_gcs)
-    return url, 200
+    url = f"https://storage.cloud.google.com/{bucket_name}/{folder_name}/{file_name}?hl=ja"
+    #########
+
+    client_id = 'fdf55ae09f3d807'
+    client_secret = '10f1d88a9dd2af3b86144f1764cad09aa57847bb'
+
+    client = storage.Client()
+    bucket = client.get_bucket(bucket_name)
+    blob = bucket.get_blob(f"{folder_name}/{file_name}")
+    print(f"{folder_name}/{file_name}")
+    # image = blob.download_as_string()
+
+    headers = {
+        'authorization': f'Client-ID {client_id}',
+    }
+    files = {
+
+        'image': blob.download_as_string()
+    }
+    r = requests.post('https://api.imgur.com/3/upload', headers=headers, files=files)
+
+    imgur_url = json.loads(r.text)['data']['link']
+
+    urls = [url, imgur_url]
+    res = f"{urls}"
+    #######
+
+    return res, 200
 
     # print(url)
 
